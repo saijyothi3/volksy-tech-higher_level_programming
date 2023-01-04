@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 from sys import argv
+
+
 def main():
 
     print('{} argument'.format(len(argv) - 1), end='')
