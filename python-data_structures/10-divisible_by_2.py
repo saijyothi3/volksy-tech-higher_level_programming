@@ -4,7 +4,7 @@ def divisible_by_2(my_list=[2,4,6,5]):
     for i in my_list:
         if i % 2 == 0:
             new_list.append(True)
-         else:
+        else:
              new_list.append(False)
              return new_list
-print(divisible_by_2(my_list=[2,4,6,5]))         
+print(divisible_by_2(my_list=[2,4,6,5])         
