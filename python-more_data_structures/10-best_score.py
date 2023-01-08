@@ -5,5 +5,4 @@ def best_score(dic):
     else:
         for i in dic:
             if dic[i] == max(dic.values()):
-                return i
-         
+                return i         
