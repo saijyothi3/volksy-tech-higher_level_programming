@@ -18,20 +18,23 @@ class square:
 
         @size.setter
         def size(self, value):
-            if type(value) is not int:
-                raise TypeError("size must be an integer")
-            if value < 0:
+        if type(value) is int:
+            if value >= 0:
+                self.__size = value
+            else:
                 raise ValueError("size must be >= 0")
+        else:
+            raise TypeError("size must be an integer")
 
-                 self.__size = value
+    def area(self):
+        """Returns the current square area."""
+        return self.__size ** 2
 
-        def area(self):
-            return self.__size * self.__size
-        def my_print(self):
-            if self.__size == 0:
-             print()
-             return
-        for i in range(0, self.__size):
-            for i in range(0, self.__size):
-                print(f"#", end='' if i < self.__size - 1 else '\n')
+    def my_print(self):
+        """Prints the square with the # character on stdout."""
+        if self.__size > 0:
+            for x in range(self.__size):
+                print('#' * self.__size)
+        else:
+            print()
 
