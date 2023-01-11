@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """this is a class"""
 
-class square:
+class Square:
     """this is bad"""
     def __init__(self, size=0):
         self.__size = size
