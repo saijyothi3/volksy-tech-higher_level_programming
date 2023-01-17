@@ -1,46 +1,31 @@
-Test for no arguments
->>> bg.integer_validator()
-Traceback (most recent call last):
-TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+============================================
+How to use 7-base_geometry.py
+============================================
 
-Test for empty string as first argumemt
->>> bg.integer_validator("", 12)
+This library is very simple, since it only has one function called
+ ''integer_validator()''.
 
->>> bg.integer_validator("", "12")
-Traceback (most recent call last):
-TypeError:  must be an integer
+Numbers:
+========
+''integer_validator()'' returns True if a num is integer.
+:: with positives integers
+   >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+   >>> bg = BaseGeometry()
 
-Test for list as second argument
->>> bg.integer_validator("list", [1, 2, 3])
-Traceback (most recent call last):
-TypeError: list must be an integer
+:: with positive integer
+   >>> bg.integer_validator("my_int", 12)
 
-Test for boolean as second argument
->>> bg.integer_validator("list", True)
-Traceback (most recent call last):
-TypeError: list must be an integer
+:: with negative integer
+   >>> bg.integer_validator("number", -12)
+   Traceback (most recent call last):
+   ValueError: number must be greater than 0
 
-Test for area
->>> bg.area()
-Traceback (most recent call last):
-Exception: area() is not implemented
+:: with 3 arguments
+   >>> bg.integer_validator("numbers", 0, 1)
+   Traceback (most recent call last):
+   TypeError: integer_validator() takes 3 positional arguments but 4 were given
 
-Test for zero
->>> bg.integer_validator("my_int", 0)
-Traceback (most recent call last):
-ValueError: my_int must be greater than 0
-
-Test for tuple
->>> bg.integer_validator("my_int", (2,))
-Traceback (most recent call last):
-TypeError: my_int must be an integer
-
-Test for set
->>> bg.integer_validator("my_int", {5, 6})
-Traceback (most recent call last):
-TypeError: my_int must be an integer
-
-Test for None
->>> bg.integer_validator("my_int", None)
-Traceback (most recent call last):
-TypeError: my_int must be an integer
+:: with infinite integer
+   >>> bg.integer_validator("infnumber", int('inf'))
+   Traceback (most recent call last):
+   ValueError: invalid literal for int() with base 10: 'inf'
