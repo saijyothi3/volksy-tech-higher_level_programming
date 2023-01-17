@@ -1,19 +1,24 @@
 #!/usr/bin/python3
-
+"""This module contains a class Rectangle that inherits from BaseGeometry
+    (7-base_geometry.py).
 """
-module for BaseGeometry/Rectangle.
-"""
-
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
 class Rectangle(BaseGeometry):
-    """Rectangle class"""
+    """class Rectangle that inherits from BaseGeometry
+        (7-base_geometry.py).
+    Arguments:
+        BaseGeometry (cls) -- class
+    """
 
     def __init__(self, width, height):
-        """Initalize"""
-        self.integer_validator("width", width)
-        self.integer_validator("height", height)
+        """Instantiation with width and height.
+        Arguments:
+            width (int) -- width.
+            height (int) -- height.
+        """
+        super().integer_validator("width", width)
         self.__width = width
+        super().integer_validator("height", height)
         self.__height = height
-
