@@ -1,49 +1,58 @@
-The ``base_geometry`` module
-======================
-
-Using ``base_geometry``
--------------------
-
-Import file
+IMPORT
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> Module = __import__('7-base_geometry').__doc__
+>>> Class = __import__('7-base_geometry').BaseGeometry.__doc__
+>>> Function = __import__('7-base_geometry').BaseGeometry.area.__doc__
+>>> Function2 = __import__('7-base_geometry').BaseGeometry.integer_validator.__doc__
 
-Test for string as second argument
+TEST
 >>> bg = BaseGeometry()
->>> bg.integer_validator("my_int", "12")
-Traceback (most recent call last):
-TypeError: my_int must be an integer
+>>> bg.integer_validator("my_int", 23) #int
+>>> bg.integer_validator("width", 12)
 
-Test for missing second argument
->>> bg.integer_validator("my_int")
+>>> bg.integer_validator("x", 2.213) #floats
 Traceback (most recent call last):
-TypeError: integer_validator() missing 1 required positional argument: 'value'
-
-Test for no arguments
->>> bg.integer_validator()
+    ...
+TypeError: x must be an integer
+>>> bg.integer_validator("x", True) #boolean
 Traceback (most recent call last):
+    ...
+TypeError: x must be an integer
+>>> bg.integer_validator("x", "John") #str
+Traceback (most recent call last):
+    ...
+TypeError: x must be an integer
+>>> bg.integer_validator("x", []) #list
+Traceback (most recent call last):
+    ...
+TypeError: x must be an integer
+>>> bg.integer_validator("x", {}) #dictionary
+Traceback (most recent call last):
+    ...
+TypeError: x must be an integer
+>>> bg.integer_validator("x", ()) #tuple
+Traceback (most recent call last):
+    ...
+TypeError: x must be an integer
+>>> bg.integer_validator("x", None) #None
+Traceback (most recent call last):
+    ...
+TypeError: x must be an integer
+>>> bg.integer_validator() #void
+Traceback (most recent call last):
+    ...
 TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
-Test for empty string as first argumemt
->>> bg.integer_validator("", 12)
 
->>> bg.integer_validator("", "12")
-Traceback (most recent call last):
-TypeError:  must be an integer
+DOCSTRING
+>>> print(len(Module) > 0)
+True
 
-Test for list as second argument
->>> bg.integer_validator("list", [1, 2, 3])
-Traceback (most recent call last):
-TypeError: list must be an integer
+>>> print(len(Class) > 0)
+True
 
-Test for boolean as second argument
->>> bg.integer_validator("list", True)
-Traceback (most recent call last):
-TypeError: list must be an integer
+>>> print(len(Function) > 0)
+True
 
-Test for area
->>> bg.area()
-Traceback (most recent call last):
-Exception: area() is not implemented
-
-Test for zero
-"7-base_geometry.txt" 66L, 1791C
+>>> print(len(Function2) > 0)
+True
