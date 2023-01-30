@@ -1,2 +1,2 @@
---all tables present in database
+-- all tables present in database
 SHOW TABLES;
