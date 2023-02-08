@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-# base.py
-# Carlos Barros <1543@holbertonschool.com>
 """Define Base class"""
 import json
 from os import path
