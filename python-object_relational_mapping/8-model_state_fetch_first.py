@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 # print first state objects from the database
 
-
 if __name__ == "__main__":
+
 
     from sqlalchemy import create_engine
     from sqlalchemy.orm import Session
