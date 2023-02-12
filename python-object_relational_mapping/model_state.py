@@ -1,14 +1,25 @@
 #!/usr/bin/python3
-"""Start link class to table in database
-"""
+''' Defined State class which inherits from Base class '''
+from sqlalchemy import Column, Integer, String
+from sqlalchemy.ext.declarative import declarative_base
 
-import sys
-from model_state import Base, State
 
-from sqlalchemy import (create_engine)
+# using declarative_base func to return a new base class, mapped class State
+# will inherit from Base and generate new Table and mapper()
+# declare new mapping
+Base = declarative_base()
 
-if __name__ == "__main__":
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
-        sys.argv[1], sys.argv[2], sys.argv[3]), pool_pre_ping=True)
-    Base.metadata.create_all(engine)
-Footer
+
+# map class to inherit from Base
+class State(Base):
+    """mapped class definition"""
+
+    # 3 important: Table, mapper(), class objects
+
+    # Table
+    __tablename__ = 'states'
+
+    # Describe table, column objects, use methods imported from sqlalchemy
+    id = Column(Integer, primary_key=True)
+    name = Column(String(128), nullable=False)
+
