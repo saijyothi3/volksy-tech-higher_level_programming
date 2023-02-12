@@ -1,27 +1,21 @@
 #!/usr/bin/python3
-# list all state objects from the database
+"""Script that lists all State objects from the database hbtn_0e_6_usa"""
+
+import sqlalchemy
+from sqlalchemy import create_engine
+import sys
+from sqlalchemy.orm import sessionmaker
+
+from model_state import Base, State
 
 if __name__ == "__main__":
-    from sqlalchemy import create_engine
-    from sqlalchemy.orm import Session
-    from sys import argv
-    from model_state import Base, State
-    from sqlalchemy.engine.url import URL
-
-    db = {'drivername': 'mysql+mysqldb',
-          'host': 'localhost',
-          'port': '3306',
-          'username': argv[1],
-          'password': argv[2],
-          'database': argv[3]}
-
-    url = URL(**db)
-    engine = create_engine(url, pool_pre_ping=True)
+    engine = create_engine(
+        'mysql+mysqldb://{}:{}@localhost/{}'.format(sys.argv[1],
+                                                    sys.argv[2], sys.argv[3]),
+        pool_pre_ping=True)
     Base.metadata.create_all(engine)
-
-    session = Session(engine)
-
-    for state in session.query(State).order_by(State.id).all():
-        print("{}: {}".format(state.id, state.name))
-
+    Session = sessionmaker(bind=engine)
+    session = Session()
+    for consul in session.query(State).order_by(State.id):
+        print("{}: {}".format(consul.id, consul.name))
     session.close()
