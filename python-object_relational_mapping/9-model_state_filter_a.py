@@ -16,4 +16,3 @@ if __name__ == "__main__":
             State.name.contains('a%')):
         print("{}: {}".format(state.id, state.name))
     session.close()
-
