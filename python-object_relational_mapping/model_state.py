@@ -22,4 +22,3 @@ class State(Base):
     # Describe table, column objects, use methods imported from sqlalchemy
     id = Column(Integer, primary_key=True)
     name = Column(String(128), nullable=False)
-
