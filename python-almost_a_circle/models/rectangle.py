@@ -20,7 +20,7 @@ class Rectangle(Base):
         return self.__width * self.__height
 
     def display(self):
-        """method to display a rectangle using #"""
+        """method to display a rectangle using `#`"""
         print("\n" * (self.__y), end="")
         for i in range(self.__height):
             print(" " * self.__x + "#" * self.__width)
@@ -108,3 +108,4 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
+
