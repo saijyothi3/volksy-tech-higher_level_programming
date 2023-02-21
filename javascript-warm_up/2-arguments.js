@@ -1,4 +1,4 @@
-#!/usr/binnode
+#!/usr/bin/node
 if (process.argv.length < 3)
 {
 	console.log('no argument');
